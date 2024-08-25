@@ -16,12 +16,12 @@ const SearchBar = ({ onSearch }) => {
         ),
       }}
       sx={{
-        width: '250px',  // Adjust the width
+        width: '250px', 
         '& .MuiOutlinedInput-root': {
-          height: '40px',  // Adjust the height
+          height: '40px', 
         },
         '& .MuiInputLabel-root': {
-          fontSize: '0.875rem',  // Adjust the label size
+          fontSize: '0.875rem',  
         },
       }}
     />

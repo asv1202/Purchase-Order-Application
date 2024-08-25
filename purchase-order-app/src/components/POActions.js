@@ -1,4 +1,3 @@
-// POActions.js
 import React from 'react';
 import { Button } from '@mui/material';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
@@ -11,7 +10,6 @@ const POActions = () => {
       sx={{
         backgroundColor: '#4d4d4d',
         color: 'white',
-        //padding: '6px 16px',
         borderRadius: '4px',
         textTransform: 'none',
         '&:hover': {

@@ -1,51 +1,10 @@
-// import React from 'react';
-// import { AppBar, Toolbar, Typography, Avatar } from '@mui/material';
-
-// const Header = () => {
-//   return (
-//     <AppBar position="static" sx={{ backgroundColor: '#424242' }}> {/* Light grey color */}
-//       <Toolbar>
-//         <Typography variant="h5" component="div" sx={{ flexGrow: 1 }}>
-//           Riversys
-//         </Typography>
-//         <Typography variant="body1" sx={{ mr: 2 }}>
-//           Purchase Order
-//         </Typography>
-//         <Typography variant="body1" sx={{ mr: 2 }}>
-//           Dashboard
-//         </Typography>
-//         <Typography variant="body1" sx={{ mr: 2 }}>
-//           Reports
-//         </Typography>
-//         <Typography variant="body1" sx={{ mr: 2 }}>
-//           RFQ
-//         </Typography>
-//         <Typography variant="body1" sx={{ mr: 2 }}>
-//           Invoice
-//         </Typography>
-//         <Avatar 
-//           sx={{ 
-//             bgcolor: 'white', 
-//             color: 'black',  // Text color inside the Avatar
-//             ml: 2 
-//           }}
-//         >
-//           AV
-//         </Avatar>
-//       </Toolbar>
-//     </AppBar>
-//   );
-// };
-
-// export default Header;
-
 import React, { useState } from 'react';
 import { AppBar, Toolbar, Typography, Avatar, Menu, MenuItem, Box, IconButton, ButtonBase } from '@mui/material';
-import EditIcon from '@mui/icons-material/Edit'; // Purchase Order Icon
-import DashboardIcon from '@mui/icons-material/Dashboard'; // Dashboard Icon
-import DescriptionIcon from '@mui/icons-material/Description'; // Reports Icon
-import ListAltIcon from '@mui/icons-material/ListAlt'; // RFQ Icon
-import ReceiptIcon from '@mui/icons-material/Receipt'; // Invoice Icon
+import EditIcon from '@mui/icons-material/Edit'; 
+import DashboardIcon from '@mui/icons-material/Dashboard';
+import DescriptionIcon from '@mui/icons-material/Description';
+import ListAltIcon from '@mui/icons-material/ListAlt';
+import ReceiptIcon from '@mui/icons-material/Receipt'; 
 
 const Header = () => {
   const [anchorEl, setAnchorEl] = useState(null);
@@ -60,7 +19,6 @@ const Header = () => {
 
   const handleNavigation = (page) => {
     console.log(`Navigate to ${page}`);
-    // Add your navigation logic here
   };
 
   return (
@@ -104,7 +62,7 @@ const Header = () => {
         <Avatar
           sx={{
             bgcolor: 'white',
-            color: 'black',  // Text color inside the Avatar
+            color: 'black',  
             ml: 2,
             cursor: 'pointer'
           }}
@@ -116,7 +74,7 @@ const Header = () => {
           anchorEl={anchorEl}
           open={Boolean(anchorEl)}
           onClose={handleClose}
-          sx={{ mt: '10px' }} // Adjust menu position if needed
+          sx={{ mt: '10px' }} 
         >
           <MenuItem onClick={handleClose}>View Profile</MenuItem>
           <MenuItem onClick={handleClose}>Logout</MenuItem>

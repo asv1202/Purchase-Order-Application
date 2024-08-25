@@ -28,7 +28,7 @@ const DateFilter = ({ onDateFilterChange = () => {} }) => {
       sx={{
         display: 'flex',
         alignItems: 'center',
-        gap: 1.5, // Space between the date inputs
+        gap: 1.5, 
       }}
     >
       <TextField
@@ -44,10 +44,10 @@ const DateFilter = ({ onDateFilterChange = () => {} }) => {
         }}
         sx={{
             '& input': {
-              color: 'blue', // Input text color
+              color: 'blue', 
             },
             '& input::-webkit-calendar-picker-indicator': {
-              color: 'blue', // Calendar picker indicator color
+              color: 'blue', 
             },
           }}
       />
@@ -64,10 +64,10 @@ const DateFilter = ({ onDateFilterChange = () => {} }) => {
         }}
         sx={{
             '& input': {
-              color: 'blue', // Input text color
+              color: 'blue',
             },
             '& input::-webkit-calendar-picker-indicator': {
-              color: 'blue', // Calendar picker indicator color
+              color: 'blue', 
             },
           }}
       />

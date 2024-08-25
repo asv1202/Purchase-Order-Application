@@ -4,7 +4,7 @@ import PurchaseOrderTable from './components/PurchaseOrderTable';
 import StatusFilter from './components/StatusFilter';
 import DateFilter from './components/DateFilter';
 import SearchBar from './components/SearchBar';
-import FilterSection from './components/FilterSection';  // Import the FilterSection component
+import FilterSection from './components/FilterSection';
 import { Container, Grid, Box, Typography, IconButton, Divider, Tooltip } from '@mui/material';
 import SyncIcon from '@mui/icons-material/Sync';
 import DescriptionIcon from '@mui/icons-material/Description';
