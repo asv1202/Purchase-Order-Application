@@ -32,6 +32,7 @@ function App() {
   const [searchQuery, setSearchQuery] = useState('');
   const [lastSyncTime, setLastSyncTime] = useState('');
   const [filters, setFilters] = useState({ poAction: '', vendor: 'All', status: 'All', fromDate: '', toDate: '' });
+  
 
   useEffect(() => {
     const now = new Date();
@@ -55,26 +56,30 @@ function App() {
   }, {});
 
   const filteredData = dummyData.filter(row => {
-    const matchesStatus = filters.status === 'All' || row.status === filters.status;
+    const matchesStatus = !filters.status || filters.status === 'All' || row.status === filters.status;
     const matchesVendor = filters.vendor === 'All' || row.vendor === filters.vendor;
     const matchesSearch = row.vendor.toLowerCase().includes(searchQuery.toLowerCase()) ||
       row.vendorCode.toLowerCase().includes(searchQuery.toLowerCase()) ||
       row.description.toLowerCase().includes(searchQuery.toLowerCase());
-
+  
     const fromDate = filters.fromDate ? new Date(filters.fromDate.split('/').reverse().join('-')) : null;
     const toDate = filters.toDate ? new Date(filters.toDate.split('/').reverse().join('-')) : null;
     const matchesDate = (!fromDate || new Date(row.dueDate.split('/').reverse().join('-')) >= fromDate) &&
       (!toDate || new Date(row.dueDate.split('/').reverse().join('-')) <= toDate);
-
+  
     return matchesStatus && matchesVendor && matchesSearch && matchesDate;
   });
+  
 
   const handleFilterChange = (name, value) => {
     setFilters((prevFilters) => ({ ...prevFilters, [name]: value || 'All' }));
   };
 
   const handleStatusChange = (status) => {
-    setFilters((prevFilters) => ({ ...prevFilters, status }));
+    setFilters((prevFilters) => ({
+      ...prevFilters,
+      status: prevFilters.status === status ? null : status,
+    }));
   };
 
   const handleDateFilterChange = ({ fromDate, toDate }) => {
@@ -134,7 +139,7 @@ function App() {
             <IconButton color="primary" aria-label="re-sync">
               <SyncIcon />
             </IconButton>
-            <Typography variant="body2" sx={{ ml: 1, color: 'blue' }}>
+            <Typography variant="body2" sx={{ ml: 1, color: '#007bff' }}>
               Re-Sync
             </Typography>
           </Box>

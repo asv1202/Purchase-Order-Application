@@ -40,14 +40,14 @@ const DateFilter = ({ onDateFilterChange = () => {} }) => {
         onChange={handleFromDateChange}
         InputLabelProps={{
           shrink: true,
-          style: {color: 'blue'}
+          style: {color: '#007bff'}
         }}
         sx={{
             '& input': {
-              color: 'blue', 
+              color: '#007bff', 
             },
             '& input::-webkit-calendar-picker-indicator': {
-              color: 'blue', 
+              color: '#007bff', 
             },
           }}
       />
@@ -60,14 +60,14 @@ const DateFilter = ({ onDateFilterChange = () => {} }) => {
         onChange={handleToDateChange}
         InputLabelProps={{
           shrink: true,
-          style: {color: 'blue'}
+          style: {color: '#007bff'}
         }}
         sx={{
             '& input': {
-              color: 'blue',
+              color: '#007bff',
             },
             '& input::-webkit-calendar-picker-indicator': {
-              color: 'blue', 
+              color: '#007bff', 
             },
           }}
       />

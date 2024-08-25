@@ -1,9 +1,14 @@
 import React, { useState } from 'react';
 import {
-  Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, Checkbox, IconButton, TablePagination, TableFooter, TableSortLabel
+  Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, Checkbox, IconButton, TablePagination, TableFooter, TableSortLabel, Tooltip
 } from '@mui/material';
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
+
+const formatNumber = (number) => {
+  return number ? number.toLocaleString() : 'N/A';
+};
+
 
 const PurchaseOrderTable = ({ data }) => {
   const [page, setPage] = useState(0);
@@ -66,12 +71,12 @@ const PurchaseOrderTable = ({ data }) => {
 
   const getStatusColor = (status) => {
     switch (status) {
-      case 'Accepted':
-        return 'green';
       case 'Rejected':
         return 'red';
+      case 'Review Requested':
+        return '#ffbd33 ';
       default:
-        return 'blue';
+        return '#007bff';
     }
   };
 
@@ -198,10 +203,10 @@ const PurchaseOrderTable = ({ data }) => {
                 <TableCell sx={{ whiteSpace: 'normal', fontSize: '0.75rem', justifyContent: 'center' }}>{row.poNumber || 'N/A'}</TableCell>
                 <TableCell sx={{ whiteSpace: 'normal', fontSize: '0.75rem', justifyContent: 'center' }}>{row.poLine || 'N/A'}</TableCell>
                 <TableCell sx={{ whiteSpace: 'normal', fontSize: '0.75rem' }}>{row.description || 'N/A'}</TableCell>
-                <TableCell sx={{ whiteSpace: 'normal', fontSize: '0.75rem', justifyContent: 'center' }}>{row.poValue || 'N/A'}</TableCell>
-                <TableCell sx={{ whiteSpace: 'normal', fontSize: '0.75rem', justifyContent: 'center' }}>{row.qtyOrdered || 'N/A'}</TableCell>
-                <TableCell sx={{ whiteSpace: 'normal', fontSize: '0.75rem', justifyContent: 'center' }}>{row.qtyShipped || 'N/A'}</TableCell>
-                <TableCell sx={{ whiteSpace: 'normal', fontSize: '0.75rem', justifyContent: 'center' }}>{row.grQuantity || 'N/A'}</TableCell>
+                <TableCell sx={{ whiteSpace: 'normal', fontSize: '0.75rem', justifyContent: 'center' }}>{formatNumber(row.poValue)}</TableCell>
+                <TableCell sx={{ whiteSpace: 'normal', fontSize: '0.75rem', justifyContent: 'center' }}>{formatNumber(row.qtyOrdered)}</TableCell>
+                <TableCell sx={{ whiteSpace: 'normal', fontSize: '0.75rem', justifyContent: 'center' }}>{formatNumber(row.qtyShipped)}</TableCell>
+                <TableCell sx={{ whiteSpace: 'normal', fontSize: '0.75rem', justifyContent: 'center' }}>{formatNumber(row.grQuantity)}</TableCell>
                 <TableCell sx={{ whiteSpace: 'normal', fontSize: '0.75rem', justifyContent: 'center' }}>{row.uom || 'N/A'}</TableCell>
                 <TableCell sx={{ whiteSpace: 'normal', fontSize: '0.75rem', justifyContent: 'center' }}>{row.dueDate || 'N/A'}</TableCell>
                 <TableCell sx={{ whiteSpace: 'normal', fontSize: '0.75rem', justifyContent: 'center' }}>{row.committedDate || 'N/A'}</TableCell>
@@ -216,9 +221,12 @@ const PurchaseOrderTable = ({ data }) => {
                   {row.status}
                 </TableCell>
                 <TableCell sx={{ whiteSpace: 'nowrap', fontSize: '0.75rem' }}>
+                <Tooltip title="Edit">
                   <IconButton aria-label="edit">
                     <EditIcon />
                   </IconButton>
+                  </Tooltip>
+                  <Tooltip title="Delete"></Tooltip>
                   <IconButton aria-label="delete">
                     <DeleteIcon />
                   </IconButton>

@@ -14,11 +14,11 @@ const StatusFilter = ({ statusCounts, selectedStatus, onStatusChange }) => {
           key={status}
           onClick={() => onStatusChange(status)}
           sx={{
-            color: selectedStatus === status ? 'white' : 'blue',
-            backgroundColor: selectedStatus === status ? 'blue' : 'white',
+            color: selectedStatus === status ? 'white' : '#007bff',
+            backgroundColor: selectedStatus === status ? '#007bff' : 'white',
             padding: '8px 16px',
             '&:hover': {
-              backgroundColor: selectedStatus === status ? 'blue' : '#f0f0f0',
+              backgroundColor: selectedStatus === status ? '#007bff' : '#f0f0f0',
             },
           }}
         >
